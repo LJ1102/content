@@ -78,7 +78,7 @@ None.
 
 ## Examples
 
-The following example shows how to draw a given geometry multiple times with a single draw call.
+The following example shows how to draw multiple instances of a geometry with an index buffer.
 
 > **Warning:** The following is educational, not production level code. It should generally be avoided to construct data / buffers within the rendering loop or right before use. 
 
