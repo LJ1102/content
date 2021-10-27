@@ -44,7 +44,7 @@ None.
 ## Examples
 
 ```js
-gl.vertexAttribDivisor(0, 2);
+gl.vertexAttribDivisor(attribLocation, 1);
 ```
 
 ## Specifications
