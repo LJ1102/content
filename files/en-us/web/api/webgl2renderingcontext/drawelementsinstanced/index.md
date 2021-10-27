@@ -78,9 +78,42 @@ None.
 
 ## Examples
 
+The following example shows how to draw a given geometry multiple times with a single draw call.
+
+> **Warning:** The following is educational, not production level code. It should generally be avoided to construct data / buffers within the rendering loop or right before use. 
+
 ```js
-gl.drawElementsInstanced(gl.POINTS, 2, gl.UNSIGNED_SHORT, 0, 4);
+// binding the geometry buffer as usual
+gl.bindBuffer(gl.ARRAY_BUFFER, geometryVertexBuffer);
+gl.enableVertexAttribArray(vertexPositionAttributeLocation);
+gl.vertexAttribPointer(vertexPositionAttributeLocation, 3, gl.FLOAT, false, 0, 0);
+
+// binding the index buffer as usual
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, geometryIndexBuffer);
+
+// build position buffer
+const instancePositions = [];
+for (const instance of instances) {
+  instancePositions.push(
+    instance.position.x,
+    instance.position.y,
+    instance.position.z
+  );
+}
+const instancePositionBuffer = createWebGLBufferFromData(instancePositions);
+
+// binding the instance positions buffer as you would with any attribute
+gl.bindBuffer(gl.ARRAY_BUFFER, instancePositionBuffer);
+gl.enableVertexAttribArray(instancePositionAttributeLocation);
+gl.vertexAttribPointer(instancePositionAttributeLocation, 3, gl.FLOAT, false, 0, 0);
+
+// mark the attribe as instanced and advance it every single(1) instance rather than every vertex
+gl.vertexAttribDivisor(instancePositionAttributeLocation, 1);
+
+// draw a geometry for each instance
+gl.drawElementsInstanced(gl.TRIANGLES, 0, numGeometryVertices, 0, instances.length);
 ```
+
 
 ## Specifications
 
