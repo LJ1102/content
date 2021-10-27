@@ -99,5 +99,7 @@ gl.drawArraysInstanced(gl.TRIANGLES, 0, numGeometryVertices, instances.length);
 
 ## See also
 
+- {{domxref("WebGL2RenderingContext.vertexAttribDivisor()")}}
+- {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
 - {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()")}}
 - {{domxref("WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()")}}

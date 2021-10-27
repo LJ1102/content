@@ -47,6 +47,8 @@ None.
 gl.vertexAttribDivisor(attribLocation, 1);
 ```
 
+For a more complete example see {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}.
+
 ## Specifications
 
 {{Specifications}}
@@ -57,4 +59,6 @@ gl.vertexAttribDivisor(attribLocation, 1);
 
 ## See also
 
+- {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}
+- {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
 - {{domxref("ANGLE_instanced_arrays.vertexAttribDivisorANGLE()")}}
